@@ -23,8 +23,6 @@ class Model(nn.Module):
         x = self.layer_1(x)
         x = self.relu(x)
         x = self.layer_2(x)
-        # x = self.relu(x)
-        # x = self.layer_3(x)
         return self.sigmoid(x)
 
 
@@ -43,7 +41,7 @@ def train_regression_model(xTr, yTr, model, num_epochs, loss_fn, lr=1e-3, print_
         model:   nn.Module trained model
     """
     model.train()
-    optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=1e-3)
+    optimizer = optim.Adam(model.parameters(), lr=lr, weight_decay=1e-4)
 
     for epoch in range(num_epochs):
         # need to zero the gradients in the optimizer so we don't
